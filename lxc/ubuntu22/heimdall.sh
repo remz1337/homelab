@@ -25,11 +25,11 @@ apt upgrade -y
 #Install service
 echo "Installing $service_name..."
 #repo to get php7.4 on ubuntu 22
-apt install -y software-properties-common git
+apt install -y software-properties-common git nginx sqlite3 openssl
 add-apt-repository ppa:ondrej/php
 apt update
 
-apt install -y git nginx sqlite3 openssl php7.4 php7.4-fpm php7.4-sqlite3  php7.4-xml php7.4-zip  php7.4-curl php7.4-mbstring php7.4-common
+apt install -y php7.4 php7.4-fpm php7.4-sqlite3 php7.4-xml php7.4-zip php7.4-curl php7.4-mbstring php7.4-common
 
 git clone https://github.com/linuxserver/Heimdall.git /opt/heimdall
 
@@ -48,7 +48,7 @@ server {
         server_name _;
 
         location / {
-                try_files $uri $uri/ /index.php?$query_string;
+                try_files \$uri \$uri/ /index.php?\$query_string;
                 autoindex on;
                 sendfile off;
         }
