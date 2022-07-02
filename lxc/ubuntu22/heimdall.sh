@@ -36,7 +36,7 @@ git clone https://github.com/linuxserver/Heimdall.git /opt/heimdall
 rm -R /var/www/html
 ln -s /opt/heimdall/public/ /var/www/html
 
-cat <<EOF > /etc/nginx/sites-enabled/default.conf
+cat <<EOF > /etc/nginx/sites-enabled/default
 server {
         listen 80 default_server;
         listen [::]:80 default_server;
